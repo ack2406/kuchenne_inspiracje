@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div id="home-posts">
+  {% for post in posts %}
+    <a href="{% url 'post_detail' post.id %}">
+    <div class="post-tile">
+      <h2>{{ post.title }}</h2>
+      {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+      {% else %}
+        <img src="/media/posts/default-picture.webp" alt="Brak obrazka">
+      {% endif %}
+      <p>{{ post.content|truncatewords:18 }}</p>
+      <p>Opublikowany: {{ post.published_date }}</p>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

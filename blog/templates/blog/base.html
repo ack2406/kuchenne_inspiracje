@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Kuchenne Inspiracje</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Kuchenne Inspiracje</a></h1>
+    </header>
+    {% if user.is_authenticated %}
+    <nav>
+        <a href="{% url 'home' %}">Strona Główna</a> |
+        <a href="{% url 'profile' %}">Profil</a> |
+        {% if user.profile.role == 'AUTH' %}
+        <a href="{% url 'create_post' %}">Stwórz wpis</a> |
+        {% endif %}
+        <a href="{% url 'logout' %}">Wyloguj</a>
+    </nav>
+    {% else %}
+    <nav>
+        <a href="{% url 'login' %}">Logowanie</a> |
+        <a href="{% url 'signup' %}">Rejestracja</a>
+    </nav>
+    {% endif %}
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+    <footer>
+        <p>© 2024 Kuchenne Inspiracje. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+</body>
+</html>

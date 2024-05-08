@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div id="profile-desc">
+  <h1>Profil użytkownika {{ user.username }}</h1>
+  <div id="profile-content">
+    <div id="profile-photo">
+    {% if user.profile.profile_pic %}
+      <img src="{{ user.profile.profile_pic.url }}" alt="Profile Picture">
+    {% else %}
+      <img src="/media/profiles/default-pfp.jpg" alt="Brak obrazka">
+    {% endif %}
+    </div>
+
+    <div id="profile-info">
+    <p id="profile-email">E-mail: {{ profile.user.email }}</p>
+    <p id="profile-joined">Dołączył: {{ profile.user.date_joined }}</p>
+    <p>{{ profile.bio|linebreaksbr }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

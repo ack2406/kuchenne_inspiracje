@@ -1,0 +1,74 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div id="signup-form">
+  <h1>Rejestracja</h1>
+  <form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    
+    <div class="input-field">
+      <label for="username">Nazwa użytkownika:</label>
+      <input type="text" name="username" id="username" required value="{{ user_form.username.value|default_if_none:'' }}">
+      {% if user_form.username.errors %}
+        <span class="error">{{ user_form.username.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required value="{{ user_form.email.value|default_if_none:'' }}">
+      {% if user_form.email.errors %}
+        <span class="error">{{ user_form.email.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="password1">Hasło:</label>
+      <input type="password" name="password1" id="password1" required>
+      {% if user_form.password1.errors %}
+        <span class="error">{{ user_form.password1.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="password2">Potwierdź hasło:</label>
+      <input type="password" name="password2" id="password2" required>
+      {% if user_form.password2.errors %}
+        <span class="error">{{ user_form.password2.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="role">Rola:</label>
+      <br>
+      <select name="role" id="role">
+        {% for value, name in profile_form.fields.role.choices %}
+          <option value="{{ value }}" {% if profile_form.role.value == value %}selected{% endif %}>{{ name }}</option>
+        {% endfor %}
+      </select>
+      {% if profile_form.role.errors %}
+        <span class="error">{{ profile_form.role.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="bio">Opis:</label>
+      <br>
+      <textarea name="bio" id="bio">{{ profile_form.bio.value|default_if_none:'' }}</textarea>
+      {% if profile_form.bio.errors %}
+        <span class="error">{{ profile_form.bio.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <div class="input-field">
+      <label for="profile_pic">Zdjęcie profilowe:</label>
+      <input type="file" name="profile_pic" id="profile_pic">
+      {% if profile_form.profile_pic.errors %}
+        <span class="error">{{ profile_form.profile_pic.errors|first }}</span>
+      {% endif %}
+    </div>
+
+    <input type="submit" value="Zarejestruj się" class="btn">
+  </form>
+</div>
+{% endblock %}

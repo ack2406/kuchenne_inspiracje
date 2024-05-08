@@ -1,0 +1,306 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+/* Header styling */
+header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header {
+    background-color: #2196f3;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+
+    width: 100%;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #64b5f6;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    background-color: #2196f3;
+}
+
+/* Main content section */
+section {
+    margin-top: 30px;
+    width: 60rem;
+    margin-bottom: 100px;
+}
+
+/* Cards for posts */
+.card {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card h2 {
+    color: #333;
+}
+
+.card a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2196f3;
+    color: white;
+    text-align: center;
+    padding: 2px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Form input styling */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #0d47a1;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #2196f3;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    margin: 10px 0;
+}
+
+
+#login-form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#signup-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#home-posts {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home-posts a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.post-tile {
+    width: 30rem;
+    min-height: 18rem;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.post-tile:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.post-tile h2 {
+    color: #333;
+}
+
+.post-tile p {
+    color: #333;
+}
+
+.post-tile img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+}
+
+#details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#add-comment {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#edit-post-btn {
+    background-color: #0d47a1;
+    color: white;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#edit-post-btn:hover {
+    background-color: #2196f3;
+}
+
+#delete-post-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#delete-post-btn:hover {
+    background-color: #f44336;
+}
+
+#add-comment-wrapper {
+    padding-top: 10px;
+}
+
+#add-comment-btn {
+    background-color: #0d47a1;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#add-comment-btn:hover {
+    background-color: #2196f3;
+}
+
+.comment {
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#create-post {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#edit-post {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#profile-desc {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+#profile-content {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+#profile-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+#details img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}

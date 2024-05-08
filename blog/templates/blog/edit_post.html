@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div id="edit-post">
+  <h1>Edytuj wpis</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Zaktualizuj">
+  </form>
+</div>
+{% endblock %}

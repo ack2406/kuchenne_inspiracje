@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<div id="details">
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+  {% else %}
+    <img src="/media/posts/default-picture.webp" alt="Brak obrazka">
+  {% endif %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.published_date }}</p>
+  {% if request.user == post.author %}
+    <a id="edit-post-btn" href="{% url 'edit_post' post.id %}">Edytuj</a>
+    <a id="delete-post-btn" href="{% url 'delete_post' post.id %}" onclick="return confirm('Czy na pewno chcesz usunąć wybrany wpis?');">Usuń</a>
+  {% endif %}
+  <p>{{ post.content|linebreaksbr }}</p>
+
+  <h3>Komentarze</h3>
+  {% for comment in comments %}
+    <div class="comment">
+      <h5>{{ comment.author.username }} | {{ comment.created_date }}</h5>
+      <p>{{ comment.content }}</p>
+    </div>
+  {% endfor %}
+  <div id="add-comment-wrapper">
+    <a id="add-comment-btn" href="{% url 'add_comment' post.id %}">Dodaj komentarz</a>
+  </div>
+</div>
+{% endblock %}
+
